@@ -1,30 +1,39 @@
 import React from 'react'
 import Image from 'next/image'
+import NextLink from 'next/link'
+import { Flex, Box, Link, IconButton, Button } from '@chakra-ui/react'
+import { SettingsIcon, ChevronDownIcon } from '@chakra-ui/icons'
 
 type HeaderProps = {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
   return (
-    <div className="flex w-screen items-center justify-between">
-      <div className="flex items-center">
-        <p className="text-base text-white">Home</p>
-      </div>
+    <Flex
+      p={5}
+      borderBottom="1px solid rgba(130, 130, 149, 0.3)"
+      mb="5"
+      alignItems="center"
+    >
+      <NextLink href="/" passHref>
+        <Link>
+          <Image src={'/logo.svg'} height={15} width={120} />
+        </Link>
+      </NextLink>
 
-      <div className="flex items-center ">
-        <p className="text-base text-white">Settings</p>
-        <button className="text-base text-white">
-          <Image
-            src={'/svg/settings.svg'}
-            height={60}
-            width={60}
-            color="white"
-          />
-        </button>
-        <button className="text-base text-white">Network</button>
-
-        <button className="text-base text-white">Connect Wallet</button>
-      </div>
-    </div>
+      <Box ml="auto">
+        <IconButton
+          variant="outline"
+          aria-label="Settings"
+          icon={<SettingsIcon />}
+        />
+        <Button variant="outline" ml="3">
+          Ethereum <ChevronDownIcon />
+        </Button>
+        <Button variant="outline" ml="3">
+          Connect Wallet
+        </Button>
+      </Box>
+    </Flex>
   )
 }
 export default Header

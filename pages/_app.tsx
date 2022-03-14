@@ -1,6 +1,9 @@
-import '../styles/globals.css'
+import themeConfig from '../styles/theme.js'
 import type { AppProps } from 'next/app'
 import { Mainnet, DAppProvider, Config } from '@usedapp/core'
+import { ChakraProvider } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
+import Layout from '../sections/shared/Layout'
 
 const config: Config = {
   readOnlyChainId: Mainnet.chainId,
@@ -10,11 +13,17 @@ const config: Config = {
   },
 }
 
+const theme = extendTheme(themeConfig)
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <DAppProvider config={config}>
-      <Component {...pageProps} />
-    </DAppProvider>
+    <ChakraProvider theme={theme}>
+      <DAppProvider config={config}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </DAppProvider>
+    </ChakraProvider>
   )
 }
 

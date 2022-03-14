@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Layout from '../sections/shared/Layout'
+import Intro from '../sections/home/Intro'
+import Councils from '../sections/home/Councils'
+import { Container } from '@chakra-ui/react'
 
 const Home: NextPage = () => {
   return (
@@ -9,7 +11,11 @@ const Home: NextPage = () => {
         <title>Synthetix | V3GM Home</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Layout>Hello World</Layout>
+
+      <Container maxW="container.xl">
+        <Intro />
+        <Councils />
+      </Container>
     </>
   )
 }
