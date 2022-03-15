@@ -3,10 +3,15 @@ import Image from 'next/image'
 import NextLink from 'next/link'
 import { Flex, Box, Link, IconButton, Button } from '@chakra-ui/react'
 import { SettingsIcon, ChevronDownIcon } from '@chakra-ui/icons'
+import { useConnectWallet, useSetChain, useWallets } from '@web3-onboard/react'
 
 type HeaderProps = {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
+  const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
+  const [{ chains, connectedChain, settingChain }, setChain] = useSetChain()
+  const connectedWallets = useWallets()
+
   return (
     <Flex
       p={5}
@@ -27,11 +32,18 @@ const Header: React.FC<HeaderProps> = ({}) => {
           icon={<SettingsIcon />}
         />
         <Button variant="outline" ml="3">
-          Ethereum <ChevronDownIcon />
+          {connectedChain ? connectedChain.namespace : 'Ethereum'}{' '}
+          <ChevronDownIcon />
         </Button>
-        <Button variant="outline" ml="3">
-          Connect Wallet
-        </Button>
+        {wallet ? (
+          <Button onClick={() => {}} variant="outline" ml="3">
+            {connectedWallets[0].accounts[0].address}
+          </Button>
+        ) : (
+          <Button onClick={() => connect()} variant="outline" ml="3">
+            Connect Wallet
+          </Button>
+        )}
       </Box>
     </Flex>
   )

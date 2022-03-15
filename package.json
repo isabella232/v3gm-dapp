@@ -10,12 +10,21 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
-    "@usedapp/core": "^0.11.0",
+    "@web3-onboard/core": "^2.0.10",
+    "@web3-onboard/gnosis": "^2.0.1",
+    "@web3-onboard/injected-wallets": "^2.0.2",
+    "@web3-onboard/ledger": "^2.0.0",
+    "@web3-onboard/react": "^2.0.3",
+    "@web3-onboard/trezor": "^2.0.1",
+    "@web3-onboard/walletconnect": "^2.0.1",
+    "@web3-onboard/walletlink": "^2.0.0",
     "ethers": "^5.5.1",
     "framer-motion": "^6.2.8",
     "next": "latest",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "recoil": "^0.6.1",
+    "unstated-next": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "17.0.4",
