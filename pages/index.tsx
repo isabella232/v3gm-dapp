@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      <Container maxW="container.xl">
+      <Container maxW="container.lg">
         <Intro />
         <Councils />
       </Container>

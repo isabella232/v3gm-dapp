@@ -10,13 +10,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <Box
       as="main"
-      background="black"
+      background="#070725"
       minHeight="100vh"
       color="rgba(255,255,255,0.85)"
       d="flex"
       flexDirection="column"
     >
-      <Box flex="1">
+      <Box flex="1" backgroundImage="url('/images/background.svg')">
         <Header />
         <Container maxW="container.xl">
           <SelfNominateAlert />
