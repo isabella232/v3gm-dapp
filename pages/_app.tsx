@@ -16,7 +16,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Connector.Provider>
         <ChakraProvider theme={theme}>
           <Fonts />
-
           <Component {...pageProps} />
         </ChakraProvider>
       </Connector.Provider>
